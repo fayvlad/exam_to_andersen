@@ -1,6 +1,9 @@
 <?php
 namespace framework;
 
+use controllers\Error;
+use controllers\Index;
+
 class Url
 {
     public function __construct()
