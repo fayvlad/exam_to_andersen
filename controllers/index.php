@@ -3,17 +3,20 @@ namespace controllers;
 
 use framework\Controller;
 
-class Error extends Controller
+class Index extends Controller
 {
-
     public function __construct()
     {
         parent::__construct();
-        $this->view->msg = 'Страницы не существует!';
     }
 
     public function index()
     {
-        $this->view->render('error/index');
+        echo 'INSIDE INDEX INDEX';
+    }
+
+    public function details()
+    {
+        $this->view->render('index/index');
     }
 }

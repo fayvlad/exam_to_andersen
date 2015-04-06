@@ -1,6 +1,8 @@
 <?php
 namespace framework;
 
+use PDO;
+
 class Database extends PDO
 {
 
