@@ -1,6 +1,6 @@
 <?php
 
-class Login_Model extends Model
+class LoginModel extends Model
 {
     public function __construct()
     {
@@ -21,11 +21,9 @@ class Login_Model extends Model
             Session::init();
             Session::set('role', $data['role']);
             Session::set('loggedIn', true);
-            header('Location: ../dashboard');
+            header('Location: ../index');
         } else {
             header('Location: ../login');
         }
     }
-
-
 }

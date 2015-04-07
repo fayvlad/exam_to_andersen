@@ -1,9 +1,7 @@
 <?php
-namespace models;
 
-use framework\Model;
 
-class User_Model extends Model
+class UserModel extends Model
 {
     public function __construct()
     {
