@@ -9,21 +9,24 @@ class LoginModel extends Model
 
     public function run()
     {
-        $sth = $this->db->prepare("SELECT id, role FROM users WHERE login = :login AND password = MD5(:password)");
+        $sth = $this->db->prepare("SELECT * FROM users WHERE `email` = :email AND `password` = :password");
         $sth->execute(array(
-            ':login' => $_POST['login'],
+            ':email' => $_POST['email'],
             ':password' => $_POST['password']
         ));
         $data = $sth->fetch();
-        // $data = $sth->fetchAll();
         $count = $sth->rowCount();
         if ($count > 0) {
             Session::init();
             Session::set('role', $data['role']);
+            Session::set('name', $data['name']);
+            Session::set('sname', $data['sname']);
+            Session::set('email', $data['email']);
             Session::set('loggedIn', true);
             header('Location: ../index');
         } else {
             header('Location: ../login');
         }
+        return $data;
     }
 }

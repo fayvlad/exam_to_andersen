@@ -12,6 +12,12 @@ class Login extends Controller
         $this->view->render('login/index');
     }
 
+    public function logout()
+    {
+        Session::destroy();
+        $this->view->redirect('index');
+    }
+
     public function run()
     {
         $this->model->run();

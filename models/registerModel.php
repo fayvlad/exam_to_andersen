@@ -28,7 +28,10 @@ class RegisterModel extends Model
                 ':role' => 'owner',
             ));
             Session::init();
-            Session::set('role', 'owner');
+            Session::set('role', ROLE);
+            Session::set('name', $_POST['name']);
+            Session::set('sname', $_POST['sname']);
+            Session::set('email', $_POST['email']);
             Session::set('loggedIn', true);
             header('Location: ../index');
         }

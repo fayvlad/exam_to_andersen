@@ -15,7 +15,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -27,18 +28,25 @@
             <ul class="nav navbar-nav">
                 <?php Session::init(); ?>
                 <?php if (Session::get('loggedIn') == false): ?>
-                <li class="active"><a href="<?php echo URL; ?>/index">Home</a></li>
+                    <li class="active"><a href="<?php echo URL; ?>/index">Home</a></li>
                 <?php endif; ?>
 
                 <?php if (Session::get('loggedIn') == true): ?>
-                <li class="active"><a href="<?php echo URL; ?>/index">Home</a></li>
-                <li><a href="<?php echo URL; ?>/logout">Logout</a></li>
-
-                <?php if (Session::get('role') == 'owner'): ?>
-                <li><a href="<?php echo URL; ?>/user">Users</a></li>
-                <?php endif; ?>
+                    <li class="active"><a href="<?php echo URL; ?>/index">Home</a></li>
+                    <li>
+                        <a href="<?php echo URL; ?>/login/logout">Logout (
+                            <?php
+                            Session::init();
+                            echo Session::get('name');
+                            ?>
+                            )
+                        </a>
+                    </li>
+                    <?php if (Session::get('role') != 'owner'): ?>
+                        <li><a href="<?php echo URL; ?>/user">Users</a></li>
+                    <?php endif; ?>
                 <?php else: ?>
-                <li><a href="<?php echo URL; ?>/login">Login</a></li>
+                    <li><a href="<?php echo URL; ?>/login">Login</a></li>
                 <?php endif; ?>
             </ul>
         </div>
