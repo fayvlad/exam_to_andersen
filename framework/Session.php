@@ -1,5 +1,4 @@
 <?php
-namespace framework;
 
 class Session
 {

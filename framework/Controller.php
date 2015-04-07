@@ -1,5 +1,4 @@
 <?php
-namespace framework;
 
 class Controller
 {
@@ -13,7 +12,7 @@ class Controller
         $path = 'models/' . $name . '_model.php';
         if (file_exists($path)) {
             require 'models/' . $name . '_model.php';
-            $modelName = $name . '_Model';
+            $modelName = $name . '_model';
             $this->model = new $modelName();
         }
     }

@@ -1,10 +1,6 @@
 <?php
-namespace controllers;
-
-use framework\Controller;
 
 class Login extends Controller
-
 {
     public function __construct()
     {

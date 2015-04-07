@@ -1,7 +1,4 @@
 <?php
-namespace controllers;
-
-use framework\Controller;
 
 class Index extends Controller
 {
@@ -12,7 +9,7 @@ class Index extends Controller
 
     public function index()
     {
-        echo 'INSIDE INDEX INDEX';
+        echo 'Home page';
     }
 
     public function details()

@@ -1,7 +1,4 @@
 <?php
-namespace models;
-
-use framework\Model;
 
 class Login_Model extends Model
 {

@@ -1,7 +1,5 @@
 <?php
 
-use framework\Url;
-
 require 'framework/Controller.php';
 require 'framework/Models.php';
 require 'framework/View.php';

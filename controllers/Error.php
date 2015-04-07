@@ -1,7 +1,4 @@
 <?php
-namespace controllers;
-
-use framework\Controller;
 
 class Error extends Controller
 {
