@@ -17,8 +17,8 @@ class UserModel extends Model
 
     public function create($data)
     {
-        $sth = $this->db->prepare("INSERT INTO  `users` (`id` ,`name` ,`sname` ,`email` ,`password` ,`role`)
-                                        VALUES (NULL ,  :name,  :sname,  :email, :password,  :role)");
+        $sth = $this->db->prepare("INSERT INTO  `users` (`name` ,`sname` ,`email` ,`password` ,`role`)
+                                        VALUES (:name,  :sname,  :email, :password,  :role)");
         $sth->execute(array(
             ':name' => $data['name'],
             ':sname' => $data['sname'],
@@ -55,5 +55,4 @@ class UserModel extends Model
             ':id' => $id
         ));
     }
-
 }

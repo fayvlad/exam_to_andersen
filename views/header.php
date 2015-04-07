@@ -27,11 +27,11 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <?php Session::init(); ?>
-                <?php if (Session::get('loggedIn') == false): ?>
+                <?php if (!Session::get('loggedIn')): ?>
                     <li class="active"><a href="<?php echo URL; ?>/index">Home</a></li>
                 <?php endif; ?>
 
-                <?php if (Session::get('loggedIn') == true): ?>
+                <?php if (Session::get('loggedIn')): ?>
                     <li class="active"><a href="<?php echo URL; ?>/index">Home</a></li>
                     <li>
                         <a href="<?php echo URL; ?>/login/logout">Logout (

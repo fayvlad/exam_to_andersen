@@ -12,11 +12,11 @@ class Register extends Controller
         $this->view->render('register/index');
     }
 
-
     public function regist()
     {
         $this->view->msg = $this->model->registration();
-        if($this->view->msg != null)
-        $this->view->render('register/index');
+        if (null !== $this->view->msg) {
+            $this->view->render('register/index');
+        }
      }
 }

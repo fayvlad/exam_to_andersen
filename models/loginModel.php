@@ -14,9 +14,9 @@ class LoginModel extends Model
             ':email' => $_POST['email'],
             ':password' => $_POST['password']
         ));
-        $data = $sth->fetch();
         $count = $sth->rowCount();
         if ($count > 0) {
+            $data = $sth->fetch();
             Session::init();
             Session::set('role', $data['role']);
             Session::set('name', $data['name']);

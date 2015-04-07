@@ -19,7 +19,7 @@ class Url
             require $file;
         } else {
             require 'controllers/error.php';
-            $controller = new Error();
+            new Error();
             return false;
         }
         $controller = new $url[0];

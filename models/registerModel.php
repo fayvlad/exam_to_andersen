@@ -18,14 +18,14 @@ class RegisterModel extends Model
             $message = 'E-mail уже существует';
             return $message;
         } else {
-            $sth = $this->db->prepare("INSERT INTO  `users` (`id` ,`name` ,`sname` ,`email` ,`password` ,`role`)
-                                        VALUES (NULL ,  :name,  :sname,  :email, :password,  :role)");
+            $sth = $this->db->prepare("INSERT INTO  `users` (`name` ,`sname` ,`email` ,`password` ,`role`)
+                                        VALUES ( :name,  :sname,  :email, :password,  :role)");
             $sth->execute(array(
                 ':name' => $_POST['name'],
                 ':sname' => $_POST['sname'],
                 ':email' => $_POST['email'],
                 ':password' => $_POST['password'],
-                ':role' => 'owner',
+                ':role' => ROLE,
             ));
             Session::init();
             Session::set('role', ROLE);
