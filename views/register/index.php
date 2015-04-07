@@ -23,10 +23,6 @@ if(isset($this->msg))
                         <input type="password" name="password" id="password" class="form-control input "
                                placeholder="Password" required>
                     </div>
-                    <div class="form-group">
-                        <input type="password" name="c_password" id="password_confirmation" class="form-control input"
-                               placeholder="Confirm Password" required>
-                    </div>
                     <br>
                     <input type="submit" value="Register" class="btn btn-info btn-block">
                 </form>

@@ -25,7 +25,7 @@ class LoginModel extends Model
             Session::set('loggedIn', true);
             header('Location: ../index');
         } else {
-            header('Location: ../login');
+            header('Location: ../register');
         }
         return $data;
     }

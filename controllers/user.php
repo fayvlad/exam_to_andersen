@@ -20,15 +20,17 @@ class User extends Controller
 
     public function index()
     {
-       // $this->view->userList = $this->model->userList();
+        $this->view->userList = $this->model->userList();
         $this->view->render('user/index');
     }
 
     public function create()
     {
         $data = array();
-        $data['login'] = $_POST['login'];
-        $data['password'] = md5($_POST['password']);
+        $data['name'] = $_POST['name'];
+        $data['sname'] = $_POST['sname'];
+        $data['email'] = $_POST['email'];
+        $data['password'] = $_POST['password'];
         $data['role'] = $_POST['role'];
         $this->model->create($data);
         header('Location: ' . URL . '/user');
@@ -45,8 +47,10 @@ class User extends Controller
     {
         $data = array();
         $data['id'] = $id;
-        $data['login'] = $_POST['login'];
-        $data['password'] = md5($_POST['password']);
+        $data['name'] = $_POST['name'];
+        $data['sname'] = $_POST['sname'];
+        $data['email'] = $_POST['email'];
+        $data['password'] = $_POST['password'];
         $data['role'] = $_POST['role'];
         $this->model->editSave($data);
         header('Location: ' . URL . '/user');
