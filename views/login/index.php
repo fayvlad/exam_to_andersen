@@ -1,7 +1,13 @@
-<h1>Login</h1>
-
-<form action="login/run" method="post">
-    <label>Login</label><input type="text" name="login"><br>
-    <label>Password</label><input type="text" name="password"><br>
-    <label></label><input type="submit">
-</form>
+    <form class="form-signin" action="login/run" method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>

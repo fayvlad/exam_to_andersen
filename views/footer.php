@@ -8,6 +8,7 @@
 ?>
 
 </div>
+</div>
 <div id="footer">
     &copy; Footer
 </div>

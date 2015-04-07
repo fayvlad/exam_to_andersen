@@ -9,11 +9,6 @@ class Index extends Controller
 
     public function index()
     {
-        echo 'Home page';
-    }
-
-    public function details()
-    {
         $this->view->render('index/index');
     }
 }

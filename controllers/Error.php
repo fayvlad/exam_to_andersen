@@ -7,6 +7,7 @@ class Error extends Controller
     {
         parent::__construct();
         $this->view->msg = 'Страницы не существует!';
+        $this->index();
     }
 
     public function index()
