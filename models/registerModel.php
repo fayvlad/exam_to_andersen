@@ -19,7 +19,7 @@ class RegisterModel extends Model
             return $message;
         } else {
             $sth = $this->db->prepare("INSERT INTO  `users` (`name` ,`sname` ,`email` ,`password` ,`role`)
-                                        VALUES ( :name,  :sname,  :email, :password,  :role)");
+                                        VALUES ( :name,  :sname,  :email, md5(:password),  :role)");
             $sth->execute(array(
                 ':name' => $_POST['name'],
                 ':sname' => $_POST['sname'],

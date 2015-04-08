@@ -40,8 +40,13 @@ class User extends Controller
         $data['name'] = $_POST['name'];
         $data['sname'] = $_POST['sname'];
         $data['email'] = $_POST['email'];
-        $data['password'] = $_POST['password'];
         $data['role'] = $_POST['role'];
+        if(null == $_POST['password']){
+            $data['password'] = $_POST['oldpassword'];
+        }
+        else{
+            $data['password'] = md5($_POST['password']);
+        }
         $this->model->editSave($data);
         header('Location: ' . URL . '/user');
     }

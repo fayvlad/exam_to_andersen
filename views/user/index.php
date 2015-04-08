@@ -36,28 +36,33 @@
 <div class="col-md-6">
     <div class="row centered-form">
         <?php foreach ($this->userList as $key => $value): ?>
-        <div class="row table-bordered">
-            <div class="col-md-1">
-                <?php echo $value['id'];  ?>
+            <div class="row table-bordered">
+                <div class="col-md-1">
+                    <?php echo $value['id']; ?>
+                </div>
+                <div class="col-md-3">
+                    <?php echo $value['name']; ?>
+                </div>
+                <div class="col-md-3">
+                    <?php echo $value['sname']; ?>
+                </div>
+                <?php if (Session::get('role') == "admin"&& $value['role'] != "superadmin" || Session::get('role') == "superadmin"): ?>
+                    <div class="col-md-1">
+                        <a href="<?php echo URL; ?>/user/edit/<?php echo $value['id']; ?>">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                <?php endif; ?>
+                <?php if (Session::get('role') == "superadmin"): ?>
+                    <div class="col-md-1">
+                        <?php if ($value['role'] != "superadmin"): ?>
+                            <a href="<?php echo URL; ?>/user/delete/<?php echo $value['id']; ?>">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
             </div>
-            <div class="col-md-3">
-                <?php echo $value['name'];  ?>
-            </div>
-            <div class="col-md-3">
-                <?php echo $value['sname'];  ?>
-            </div>
-            <div class="col-md-1">
-                <a href="<?php echo URL;  ?>/user/edit/<?php echo $value['id'];  ?>">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                </a>
-            </div><?php if(Session::get('role')== "superadmin"): ?>
-            <div class="col-md-1">
-                <a href="<?php echo URL;  ?>/user/delete/<?php echo $value['id'];  ?>">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </a>
-            </div>
-                <?php endif;?>
-        </div>
-        <?php endforeach  ?>
+        <?php endforeach ?>
     </div>
 </div>

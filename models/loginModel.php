@@ -9,7 +9,7 @@ class LoginModel extends Model
 
     public function run()
     {
-        $sth = $this->db->prepare("SELECT * FROM users WHERE `email` = :email AND `password` = :password");
+        $sth = $this->db->prepare("SELECT * FROM users WHERE `email` = :email AND `password` = md5(:password)");
         $sth->execute(array(
             ':email' => $_POST['email'],
             ':password' => $_POST['password']

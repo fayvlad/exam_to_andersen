@@ -9,6 +9,7 @@ class View
         if ($noInclude == true) {
             require 'views/' . $name . '.php';
         } else {
+            require 'views/layout.php';
             require 'views/header.php';
             require 'views/' . $name . '.php';
         }

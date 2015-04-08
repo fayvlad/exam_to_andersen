@@ -18,7 +18,7 @@ class UserModel extends Model
     public function create($data)
     {
         $sth = $this->db->prepare("INSERT INTO  `users` (`name` ,`sname` ,`email` ,`password` ,`role`)
-                                        VALUES (:name,  :sname,  :email, :password,  :role)");
+                                        VALUES (:name,  :sname,  :email, md5(:password),  :role)");
         $sth->execute(array(
             ':name' => $data['name'],
             ':sname' => $data['sname'],
@@ -33,10 +33,10 @@ class UserModel extends Model
         $sth = $this->db->prepare('UPDATE users SET `name` = :name,  `sname` = :sname,  `email` = :email, `password` = :password,  `role` = :role WHERE id = :id');
         $sth->execute(array(
             ':id' => $data['id'],
+            ':password' => $data['password'],
             ':name' => $data['name'],
             ':sname' => $data['sname'],
             ':email' => $data['email'],
-            ':password' => $data['password'],
             ':role' => $data['role'],
         ));
     }

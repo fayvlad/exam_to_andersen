@@ -5,7 +5,7 @@
                     <h3 class="panel-title">User edit</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="user/editSave/<?php echo $this->user['id']; ?>" method="post">
+                    <form role="form" action="../editSave/<?php echo $this->user['id']; ?>" method="post">
                         <input type="text" name="name" id="first_name" class="form-control input-sm"
                                placeholder="First Name" value="<?php echo $this->user['name']; ?>" required>
                         <br>
@@ -17,8 +17,10 @@
                         <hr>
                         <div class="form-group">
                             <input type="text" name="password" id="password" class="form-control input "
-                                   placeholder="Password" value="<?php echo $this->user['password']; ?>" required>
+                                   placeholder="Password">
+                            <input type="hidden" name="oldpassword" value="<?php echo $this->user['password']; ?>">
                         </div>
+                        <?php if(Session::get('role')!= "superadmin"): ?>
                         <select name="role" class="form-group form-control">
                             <option value="admin"
                                 <?php if ($this->user['role'] == 'admin') echo 'selected';?>>
@@ -33,6 +35,9 @@
                                 owner
                             </option>
                         </select>
+                        <?php else : ?>
+                        <input type="hidden" name="role" value="superadmin">
+                        <?php endif?>
                         <br>
                         <input type="submit" value="Register" class="btn btn-info btn-block">
                     </form>
@@ -40,3 +45,4 @@
             </div>
         </div>
     </div>
+<?php Session::get('role');?>
