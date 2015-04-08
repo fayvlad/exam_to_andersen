@@ -1,3 +1,4 @@
+<?php if (Session::get('role') !== "user"): ?>
 <div class="col-md-6">
     <div class="row centered-form">
         <div class="col-xs-10">
@@ -33,6 +34,7 @@
         </div>
     </div>
 </div>
+<?php endif;?>
 <div class="col-md-6">
     <div class="row centered-form">
         <?php foreach ($this->userList as $key => $value): ?>

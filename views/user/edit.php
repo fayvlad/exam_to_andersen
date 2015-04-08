@@ -20,7 +20,7 @@
                                    placeholder="Password">
                             <input type="hidden" name="oldpassword" value="<?php echo $this->user['password']; ?>">
                         </div>
-                        <?php if(Session::get('role')!= "superadmin"): ?>
+                        <?php if($this->user['role']!= "superadmin"): ?>
                         <select name="role" class="form-group form-control">
                             <option value="admin"
                                 <?php if ($this->user['role'] == 'admin') echo 'selected';?>>
@@ -39,10 +39,9 @@
                         <input type="hidden" name="role" value="superadmin">
                         <?php endif?>
                         <br>
-                        <input type="submit" value="Register" class="btn btn-info btn-block">
+                        <input type="submit" value="Ok" class="btn btn-info btn-block">
                     </form>
                 </div>
             </div>
         </div>
     </div>
-<?php Session::get('role');?>
