@@ -1,5 +1,4 @@
 <?php
-namespace framework;
 
 class Session
 {
@@ -22,7 +21,7 @@ class Session
 
     public static function destroy()
     {
-        // unset($_SESSION);
+        self::init();
         session_destroy();
     }
 }

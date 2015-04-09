@@ -1,5 +1,4 @@
 <?php
-namespace framework;
 
 class View
 {
@@ -10,9 +9,14 @@ class View
         if ($noInclude == true) {
             require 'views/' . $name . '.php';
         } else {
+            require 'views/layout.php';
             require 'views/header.php';
             require 'views/' . $name . '.php';
-            require 'views/footer.php';
         }
+    }
+
+    public function redirect($name)
+    {
+        header('Location: ../' . $name);
     }
 }
